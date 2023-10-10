@@ -1,6 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:foodie_resturent_user_app/utils/app_constants.dart';
-import 'package:get/get.dart';
+import 'package:foodie_resturent_user_app/utils/app_config/app_config_file.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +12,7 @@ final sl = GetIt.instance;
 Future<void> init() async {
 
   /// Core
-  sl.registerLazySingleton(() => DioClient(AppConstants.baseUri, sl(), loggingInterceptor: sl(), sharedPreferences: sl()));
+  sl.registerLazySingleton(() => DioClient(AppConfig.baseUri, sl(), loggingInterceptor: sl(), sharedPreferences: sl()));
 
   ///Repository
 

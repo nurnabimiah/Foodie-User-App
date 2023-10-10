@@ -1,7 +1,6 @@
 
 
-
-class AppConstants {
+class AppConfig {
 
   static const String appName = 'Loan Manager';
   static const String splashScreenDescription = 'Make Your Calculation Easy to Use \nthis App. Lets Get Start With this App';
