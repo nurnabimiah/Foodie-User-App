@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:foodie_resturent_user_app/controller/auth_controller.dart';
 import 'package:foodie_resturent_user_app/utils/app_config/app_config_file.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -23,7 +26,7 @@ Future<void> init() async {
 
 
   /// Controller
- // Get.lazyPut(() => SplashController(), fenix: true);
+   Get.lazyPut(() => AuthController(), fenix: true);
 
 
 

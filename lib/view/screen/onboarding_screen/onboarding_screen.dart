@@ -3,6 +3,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
 import '../../../data/model/response_model/onboarding_model.dart';
 
@@ -50,23 +51,14 @@ class _OnbordingScreenState extends State<OnbordingScreen> {
                   padding: const EdgeInsets.all(40),
                   child: Column(
                     children: [
-                      Image.asset(contents[i].image, height: 300,
-                      ),
-                      Text(
-                        contents[i].title,
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      SizedBox(height: 20),
-                      Text(
-                        contents[i].discription,
-                        textAlign: TextAlign.center,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.grey,
-                        ),
+                      Container(
+                          width: double.infinity,
+                          height: 300.h,
+                          child: Image.asset(contents[i].image,fit: BoxFit.cover,)),
+
+                      Text(contents[i].title, style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold,),),
+                      SizedBox(height: 20.h),
+                      Text(contents[i].discription, textAlign: TextAlign.center, style: TextStyle(fontSize: 18, color: Colors.grey,),
                       )
                     ],
                   ),

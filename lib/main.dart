@@ -29,6 +29,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
@@ -75,10 +76,11 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
               primarySwatch: Colors.red,
             ),
-            initialRoute: OnbordingScreen.routeName,
+            initialRoute: LoginScreen.routeName,
             getPages: [
               GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
               GetPage(name:OnbordingScreen.routeName, page: () => OnbordingScreen()),
+              GetPage(name:LoginScreen.routeName, page: () => LoginScreen()),
             ],
           );
         });

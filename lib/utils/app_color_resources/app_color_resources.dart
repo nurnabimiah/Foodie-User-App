@@ -1,6 +1,16 @@
 import 'package:flutter/material.dart';
 
 class AppColorResources {
+
+  static const Color backgroundColor = Color(0xffffffff);
+
+
+
+
+
+
+
+
   static const Color buttonColor = Color(0xff453984);
   static const Color buttonColorBlue = Color(0xff39A5EF);
   static const Color buttonColorRed = Color(0xffED3E3E);
