@@ -30,10 +30,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'di_container.dart' as di;
 
 var storage;
@@ -48,13 +48,9 @@ void main() async {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+
   @override
   Widget build(BuildContext context) {
-
-    // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-    //   statusBarColor: AppColorResources.appBarColor,
-    // ));
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -81,6 +77,7 @@ class MyApp extends StatelessWidget {
               GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
               GetPage(name:OnbordingScreen.routeName, page: () => OnbordingScreen()),
               GetPage(name:LoginScreen.routeName, page: () => LoginScreen()),
+              GetPage(name:SignUpScreen.routeName, page: () => SignUpScreen()),
             ],
           );
         });

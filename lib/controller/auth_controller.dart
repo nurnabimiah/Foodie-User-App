@@ -9,6 +9,23 @@ class AuthController extends GetxController{
 
   //......login controller .........
   TextEditingController numberController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+
+  //.....variable declartation.................
+
+  var isLoginPasswordVisible = false.obs;
+
+  loginPasswordVisibility(){
+    isLoginPasswordVisible.value = ! isLoginPasswordVisible.value;
+    update();
+  }
+
+
+
+
+
+
 
 
 }
