@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AppColorResources {
 
   static const Color backgroundColor = Color(0xffffffff);
+  static const Color primaryBlack = Color(0xff000000);
+  static const Color subBlackColor = Color(0xff36454F);
 
 
 
@@ -32,7 +34,6 @@ class AppColorResources {
   static const Color enableSwitchColor = Color(0xffD3CCFA);
   static const Color borderColor = Color(0xffEFECFF);
   static const Color drawerItemColor = Color(0xff646464);
-  static const Color primaryBlack = Color(0xff000000);
   static const Color primaryOrange = Colors.orange;
   static const Color viewButtonColor = Color(0xff132849);
   static const Color dividerColor = Color(0xff8E8E8E);

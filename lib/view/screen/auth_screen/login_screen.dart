@@ -4,12 +4,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/controller/auth_controller.dart';
+import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_resources.dart';
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
 import 'package:foodie_resturent_user_app/utils/app_text_style/app_text_style.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
 import 'package:foodie_resturent_user_app/view/widget/text_form_filed_widget/text_form_filed_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+
+import 'forget_password_screen.dart';
 
 
 class LoginScreen extends StatelessWidget {
@@ -28,7 +31,7 @@ class LoginScreen extends StatelessWidget {
             child: SingleChildScrollView(
               child: Container(
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height, // Set the height explicitly
+                height: MediaQuery.of(context).size.height,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     colors: [Color(0xFFE9D6C4), Color(0xFFF5ECE3)],
@@ -65,6 +68,8 @@ class LoginScreen extends StatelessWidget {
                               ),
                           SizedBox(height: 12.h,),
 
+
+                          //........password textform filed.....................
                           CustomTextFormFiled(
                             hinText: 'Enter your password',
                             obsecureText: !logincontroller.isLoginPasswordVisible.value,
@@ -85,7 +90,20 @@ class LoginScreen extends StatelessWidget {
                             },
 
                           ),
-                          SizedBox(height: 18.h,),
+
+                          //........forget password text........................
+
+                          Align(
+                            alignment: Alignment.centerRight,
+                            child: TextButton(onPressed: (){
+                             Get.to(ForgetPassWordScreen());
+                            },
+                                child: Text('Forget Password?',style: myStyleInter(12.sp, Colors.black87,FontWeight.w600,),)),
+                          ),
+                          SizedBox(height: 10.h,),
+
+
+
 
 
 

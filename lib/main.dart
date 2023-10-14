@@ -29,7 +29,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/view/screen/auth_screen/create_new_password_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/auth_screen/forget_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/auth_screen/recover_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
@@ -77,7 +80,10 @@ class MyApp extends StatelessWidget {
               GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
               GetPage(name:OnbordingScreen.routeName, page: () => OnbordingScreen()),
               GetPage(name:LoginScreen.routeName, page: () => LoginScreen()),
+              GetPage(name:ForgetPassWordScreen.routeName, page: () => ForgetPassWordScreen()),
               GetPage(name:SignUpScreen.routeName, page: () => SignUpScreen()),
+              GetPage(name:RecoverPasswordScreen.routeName, page: () => RecoverPasswordScreen()),
+              GetPage(name:CreateNewPasswordScreen.routeName, page: () => CreateNewPasswordScreen()),
             ],
           );
         });
