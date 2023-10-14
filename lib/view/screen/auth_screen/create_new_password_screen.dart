@@ -101,7 +101,7 @@ class CreateNewPasswordScreen extends StatelessWidget {
 
                   CustomButtonWidget(
                       onTap: (){
-                        Get.to(RecoverPasswordScreen.routeName);
+                        Get.toNamed(RecoverPasswordScreen.routeName);
                       },
                       buttonText: 'Send'),
 

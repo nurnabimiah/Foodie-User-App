@@ -8,6 +8,7 @@ import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_re
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
 import 'package:foodie_resturent_user_app/utils/app_text_style/app_text_style.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order.dart';
 import 'package:foodie_resturent_user_app/view/widget/text_form_filed_widget/text_form_filed_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -108,15 +109,20 @@ class LoginScreen extends StatelessWidget {
 
 
                           //...........sign in button...........................
-                          Container(
-                            height: 44.h,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                                color: Colors.pinkAccent.shade200,
-                                 borderRadius: BorderRadius.all(Radius.circular(12.r))
-                            ),
-                            child: Center(child: Text('Sign In',style: myStyleInter(16.sp, Colors.white,FontWeight.w700),)),
+                          GestureDetector(
+                            onTap: (){
+                              Get.toNamed(MyOrderScreen.routeName);
+                            },
+                            child: Container(
+                              height: 44.h,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                  color: Colors.pinkAccent.shade200,
+                                   borderRadius: BorderRadius.all(Radius.circular(12.r))
+                              ),
+                              child: Center(child: Text('Sign In',style: myStyleInter(16.sp, Colors.white,FontWeight.w700),)),
 
+                            ),
                           ),
 
                           SizedBox(height: 18.h,),
