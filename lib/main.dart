@@ -29,13 +29,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_resources.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/create_new_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/forget_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/recover_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
-import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order.dart';
+import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
 import 'di_container.dart' as di;
@@ -55,6 +57,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+
+
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+      statusBarColor: AppColorResources.primaryColor,
+    ));
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
@@ -86,6 +94,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:RecoverPasswordScreen.routeName, page: () => RecoverPasswordScreen()),
               GetPage(name:CreateNewPasswordScreen.routeName, page: () => CreateNewPasswordScreen()),
               GetPage(name:MyOrderScreen.routeName, page: () => MyOrderScreen()),
+              GetPage(name:OrderDetailsScreen.routeName, page: () => OrderDetailsScreen()),
             ],
           );
         });

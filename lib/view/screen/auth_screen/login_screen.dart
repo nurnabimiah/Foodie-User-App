@@ -8,7 +8,8 @@ import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_re
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
 import 'package:foodie_resturent_user_app/utils/app_text_style/app_text_style.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
-import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order.dart';
+import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
 import 'package:foodie_resturent_user_app/view/widget/text_form_filed_widget/text_form_filed_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -111,7 +112,7 @@ class LoginScreen extends StatelessWidget {
                           //...........sign in button...........................
                           GestureDetector(
                             onTap: (){
-                              Get.toNamed(MyOrderScreen.routeName);
+                              Get.toNamed(OrderDetailsScreen.routeName);
                             },
                             child: Container(
                               height: 44.h,

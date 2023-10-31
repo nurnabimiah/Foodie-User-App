@@ -7,6 +7,8 @@ import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_re
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
 import 'package:get/get.dart';
 
+import '../../widget/app_bar_widget/reusable_app_bar.dart';
+
 
 class MyOrderScreen extends StatelessWidget {
   const MyOrderScreen({Key? key}) : super(key: key);
@@ -27,13 +29,10 @@ class MyOrderScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
 
-      appBar: AppBar(
+      appBar: PreferredSize(
+          preferredSize: Size.fromHeight(kToolbarHeight),
+          child: ReusableAppBar(appBarTitle: 'My Order',)),
 
-        backgroundColor: Color(0xFFE9D6C4),
-        title: Text('My Cart',style: myStyleInter(14.sp, AppColorResources.subBlackColor,FontWeight.w700),),
-        centerTitle: true,
-
-      ),
       body: Container(
         height: MediaQuery.of(context).size.height,
         color:AppColorResources.appBackgroundColor,
@@ -96,6 +95,32 @@ class MyOrderScreen extends StatelessWidget {
                               ))
                         ],
                       ),
+                      Divider(color: AppColorResources.subBlackColor,thickness: 0.3),
+
+                      Row(
+
+                        children: [
+                          Padding(
+                            padding:  EdgeInsets.only(bottom: 19.h,),
+                            child: Image.asset('assets/icons/map_icon.png',height: 20.h,width: 18.w,),
+                          ),
+                          SizedBox(width: 8.w,),
+                          Flexible(
+                            child: Text(order.address,
+                              style: myStyleInter(14.sp, AppColorResources.subBlackColor, FontWeight.w500,),
+                              maxLines: null,
+                            ),
+                          ),
+                        ],
+                      ),
+
+
+
+
+
+
+
+
                     ],
                   ),
                 )
@@ -109,3 +134,6 @@ class MyOrderScreen extends StatelessWidget {
     );
   }
 }
+
+
+
