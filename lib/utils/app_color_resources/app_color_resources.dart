@@ -7,6 +7,7 @@ class AppColorResources {
   static const Color primaryBlack = Color(0xff000000);
   static const Color subBlackColor = Color(0xff36454F);
   static const Color appBackgroundColor = Color(0xFFF5ECE3);
+  static const Color PrimaryRed = Color(0xffED3E3E);
 
 
 
@@ -17,7 +18,7 @@ class AppColorResources {
 
   static const Color buttonColor = Color(0xff453984);
   static const Color buttonColorBlue = Color(0xff39A5EF);
-  static const Color buttonColorRed = Color(0xffED3E3E);
+
   static const Color buttonColorGreenAccent = Color(0xff1DC68C);
   static const Color primaryWhite = Color(0xffFFFFFF);
   static const Color secondaryBlackTextColor = Color(0xff5C5B63);
