@@ -10,6 +10,7 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../../utils/app_style.dart';
 import '../../widget/app_bar_widget/reusable_app_bar.dart';
+import '../../widget/custom_alert_dialouge_widget.dart';
 
 
 class OrderDetailsScreen extends StatelessWidget {
@@ -226,11 +227,24 @@ class OrderDetailsScreen extends StatelessWidget {
       ),
             SizedBox(height: 20.h,),
 
+
+
+            ///........................cancel order button......................
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: GestureDetector(
                 onTap: (){
-                  Get.toNamed(MyOrderScreen.routeName);
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return CustomAlertDialog(
+                        //title: "Are You ",
+                        message: "Do you want to delete this order!",
+                      );
+                    },
+                  );
+
+                 // Get.toNamed(MyOrderScreen.routeName);
                 },
                 child: Container(
                   height: 44.h,
