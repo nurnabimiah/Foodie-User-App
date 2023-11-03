@@ -35,6 +35,7 @@ import 'package:foodie_resturent_user_app/view/screen/auth_screen/forget_passwor
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/recover_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/favourite_list_screen/favourite_list_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
@@ -95,6 +96,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:CreateNewPasswordScreen.routeName, page: () => CreateNewPasswordScreen()),
               GetPage(name:MyOrderScreen.routeName, page: () => MyOrderScreen()),
               GetPage(name:OrderDetailsScreen.routeName, page: () => OrderDetailsScreen()),
+              GetPage(name:FavouriteListScreen.routeName, page: () => FavouriteListScreen()),
             ],
           );
         });

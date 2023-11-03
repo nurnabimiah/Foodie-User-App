@@ -238,7 +238,6 @@ class OrderDetailsScreen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return CustomAlertDialog(
-                        //title: "Are You ",
                         message: "Do you want to delete this order!",
                       );
                     },

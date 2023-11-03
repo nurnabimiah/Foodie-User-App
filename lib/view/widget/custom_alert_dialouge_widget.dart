@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_resources.dart';
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
+import 'package:foodie_resturent_user_app/view/screen/favourite_list_screen/favourite_list_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
@@ -33,7 +34,8 @@ class CustomAlertDialog extends StatelessWidget {
 
                 child: GestureDetector(
                   onTap: (){
-                    Get.back();
+                    //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>FavouriteListScreen()), (route) => false);
+                    Get.toNamed(FavouriteListScreen.routeName);
                   },
                   child: Container(
                     height: 40.h,
