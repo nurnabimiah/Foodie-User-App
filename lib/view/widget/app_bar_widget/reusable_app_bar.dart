@@ -9,12 +9,14 @@ import '../../../utils/app_style.dart';
 
 class ReusableAppBar extends StatelessWidget {
 
-  ReusableAppBar({Key? key,required this.appBarTitle});
+  ReusableAppBar({Key? key,required this.appBarTitle,this.elevation});
   String appBarTitle;
+  double? elevation;
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      elevation: elevation,
       backgroundColor: AppColorResources.primaryColor,
       title: Text(appBarTitle, style: myStyleInter(14.sp, AppColorResources.subBlackColor, FontWeight.w700)),
       centerTitle: true,

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_resources.dart';
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
+import 'package:foodie_resturent_user_app/view/screen/notification_screen/notification_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -27,7 +28,9 @@ class FavouriteListScreen extends StatelessWidget {
           actions: [
             Padding(
               padding:  EdgeInsets.only(right: 8.0.w),
-              child: Icon(Icons.notifications_active,size: 19.sp,),
+              child: IconButton(onPressed: () {
+                Get.toNamed(NotificationScreen.routeName);
+              }, icon:  Icon(Icons.notifications_active,size: 19.sp,),)
             ),
             Padding(
               padding:  EdgeInsets.only(right: 8.0.w),
