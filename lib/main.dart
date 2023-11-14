@@ -30,6 +30,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/utils/app_color_resources/app_color_resources.dart';
+import 'package:foodie_resturent_user_app/view/screen/address_screen/manage_address_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/create_new_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/forget_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.dart';
@@ -105,6 +106,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:NotificationScreen.routeName, page: () => NotificationScreen()),
               GetPage(name:ProfileScreen.routeName, page: () => const ProfileScreen()),
               GetPage(name:EditProfileScreen.routeName, page: () =>  EditProfileScreen()),
+              GetPage(name:ManageAddressScreen.routeName, page: () =>  ManageAddressScreen()),
             ],
           );
         });

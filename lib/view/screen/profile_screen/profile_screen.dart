@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/utils/app_style.dart';
+import 'package:foodie_resturent_user_app/view/screen/address_screen/manage_address_screen.dart';
+import 'package:get/get.dart';
 
 import '../../../utils/app_color_resources/app_color_resources.dart';
 import '../../widget/profile_section_widget/profile_section_widget.dart';
@@ -35,8 +37,12 @@ class ProfileScreen extends StatelessWidget {
                   child: SingleChildScrollView(
                     child: Column(
                       children: [
+
+                        //.......................manage address..................
                         GestureDetector(
-                          onTap: (){},
+                          onTap: (){
+                            Get.toNamed(ManageAddressScreen.routeName);
+                          },
                           child: Row(
                             children: [
                               Icon(Icons.add_business_rounded,color: AppColorResources.subBlackColor,size: 22.sp,),
