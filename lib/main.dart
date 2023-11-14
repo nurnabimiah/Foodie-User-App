@@ -40,6 +40,7 @@ import 'package:foodie_resturent_user_app/view/screen/notification_screen/notifi
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/profile_screen/profile_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
 import 'di_container.dart' as di;
@@ -86,7 +87,8 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
               primarySwatch: Colors.red,
             ),
-            initialRoute: LoginScreen.routeName,
+            //initialRoute: LoginScreen.routeName,
+            initialRoute: ProfileScreen.routeName,
             getPages: [
               GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
               GetPage(name:OnbordingScreen.routeName, page: () => OnbordingScreen()),
@@ -99,6 +101,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:OrderDetailsScreen.routeName, page: () => OrderDetailsScreen()),
               GetPage(name:FavouriteListScreen.routeName, page: () => FavouriteListScreen()),
               GetPage(name:NotificationScreen.routeName, page: () => NotificationScreen()),
+              GetPage(name:ProfileScreen.routeName, page: () => const ProfileScreen()),
             ],
           );
         });
