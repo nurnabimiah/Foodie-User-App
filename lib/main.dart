@@ -40,6 +40,7 @@ import 'package:foodie_resturent_user_app/view/screen/notification_screen/notifi
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/profile_screen/edit_profile_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/profile_screen/profile_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
 import 'package:get/get.dart';
@@ -87,6 +88,7 @@ class MyApp extends StatelessWidget {
               useMaterial3: true,
               primarySwatch: Colors.red,
             ),
+
             //initialRoute: LoginScreen.routeName,
             initialRoute: ProfileScreen.routeName,
             getPages: [
@@ -102,6 +104,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:FavouriteListScreen.routeName, page: () => FavouriteListScreen()),
               GetPage(name:NotificationScreen.routeName, page: () => NotificationScreen()),
               GetPage(name:ProfileScreen.routeName, page: () => const ProfileScreen()),
+              GetPage(name:EditProfileScreen.routeName, page: () =>  EditProfileScreen()),
             ],
           );
         });

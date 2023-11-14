@@ -10,10 +10,12 @@ class CustomTextFormFiled extends StatelessWidget {
   TextInputType keyboardType;
   TextEditingController textEditingController;
   int? maxLine;
+  String? initialValue;
   String? Function(String?) textFormFiledValidator;
   void Function(String)? onChanged;
   Widget? suffixIcon;
   dynamic obsecureText;
+
 
 
 
@@ -24,6 +26,7 @@ class CustomTextFormFiled extends StatelessWidget {
     required this.keyboardType,
     required this.textEditingController,
     required this.textFormFiledValidator,
+    this.initialValue,
     this.maxLine,
     this.onChanged,
     this.suffixIcon,
@@ -39,6 +42,7 @@ class CustomTextFormFiled extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return TextFormField(
+        initialValue: initialValue,
         obscureText:obsecureText ,
         controller: textEditingController,
         textInputAction: TextInputAction.next,

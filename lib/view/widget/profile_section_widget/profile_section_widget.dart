@@ -3,6 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/view/screen/profile_screen/edit_profile_screen.dart';
+import 'package:get/get.dart';
 import '../../../utils/app_color_resources/app_color_resources.dart';
 import '../../../utils/app_style.dart';
 
@@ -55,8 +57,11 @@ class ProfileSection extends StatelessWidget {
                     Text('Phone: 017525929714',style: myStyleInter(14.sp, Colors.white,FontWeight.w800),),
                     Text('Email: food@gmail.com',style: myStyleInter(14.sp, Colors.white,FontWeight.w800),),
                     SizedBox(height: 8.h,),
+
                     GestureDetector(
-                      onTap: (){},
+                      onTap: (){
+                        Get.toNamed(EditProfileScreen.routeName);
+                      },
                       child: Container(
                         height: 30.h,
                         decoration: BoxDecoration(
