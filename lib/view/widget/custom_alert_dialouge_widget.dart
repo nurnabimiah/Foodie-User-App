@@ -35,7 +35,7 @@ class CustomAlertDialog extends StatelessWidget {
                 child: GestureDetector(
                   onTap: (){
                     //Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context)=>FavouriteListScreen()), (route) => false);
-                    Get.toNamed(FavouriteListScreen.routeName);
+                    Navigator.pop(context);
                   },
                   child: Container(
                     height: 40.h,
