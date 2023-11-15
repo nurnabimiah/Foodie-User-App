@@ -37,6 +37,7 @@ import 'package:foodie_resturent_user_app/view/screen/auth_screen/login_screen.d
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/recover_password_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/favourite_list_screen/favourite_list_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/home_screen/home_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/notification_screen/notification_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboarding_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
@@ -91,7 +92,8 @@ class MyApp extends StatelessWidget {
             ),
 
             //initialRoute: LoginScreen.routeName,
-            initialRoute: ProfileScreen.routeName,
+            //initialRoute: ProfileScreen.routeName,
+            initialRoute: HomeScreen.routeName,
             getPages: [
               GetPage(name: SplashScreen.routeName, page: () => SplashScreen()),
               GetPage(name:OnbordingScreen.routeName, page: () => OnbordingScreen()),
@@ -100,6 +102,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:SignUpScreen.routeName, page: () => SignUpScreen()),
               GetPage(name:RecoverPasswordScreen.routeName, page: () => RecoverPasswordScreen()),
               GetPage(name:CreateNewPasswordScreen.routeName, page: () => CreateNewPasswordScreen()),
+              GetPage(name:HomeScreen.routeName, page: () =>  HomeScreen()),
               GetPage(name:MyOrderScreen.routeName, page: () => MyOrderScreen()),
               GetPage(name:OrderDetailsScreen.routeName, page: () => OrderDetailsScreen()),
               GetPage(name:FavouriteListScreen.routeName, page: () => FavouriteListScreen()),

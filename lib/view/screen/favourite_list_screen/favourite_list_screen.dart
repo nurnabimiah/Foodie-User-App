@@ -27,10 +27,10 @@ class FavouriteListScreen extends StatelessWidget {
           title: Text('Favourite List',style: myStyleInter(14.sp, AppColorResources.subBlackColor,FontWeight.w700),),
           actions: [
             Padding(
-              padding:  EdgeInsets.only(right: 8.0.w),
-              child: IconButton(onPressed: () {
-                Get.toNamed(NotificationScreen.routeName);
-              }, icon:  Icon(Icons.notifications_active,size: 19.sp,),)
+                padding:  EdgeInsets.only(right: 8.0.w),
+                child: IconButton(onPressed: () {
+                  Get.toNamed(NotificationScreen.routeName);
+                }, icon:  Icon(Icons.notifications_active,size: 19.sp,),)
             ),
             Padding(
               padding:  EdgeInsets.only(right: 8.0.w),

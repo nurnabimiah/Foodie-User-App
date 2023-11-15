@@ -14,7 +14,9 @@ class CustomTextFormFiled extends StatelessWidget {
   String? Function(String?) textFormFiledValidator;
   void Function(String)? onChanged;
   Widget? suffixIcon;
+  Widget? prefixIcon;
   dynamic obsecureText;
+
 
 
 
@@ -30,6 +32,7 @@ class CustomTextFormFiled extends StatelessWidget {
     this.maxLine,
     this.onChanged,
     this.suffixIcon,
+    this.prefixIcon,
     this.obsecureText = false,
 
   }) : super(key: key);
@@ -52,6 +55,7 @@ class CustomTextFormFiled extends StatelessWidget {
 
         decoration: InputDecoration(
             contentPadding: EdgeInsets.all(12),
+
             ///........................enable border..............................
             enabledBorder: OutlineInputBorder(
               borderSide:BorderSide(color: Colors.white,width: 2.w,),
@@ -88,7 +92,10 @@ class CustomTextFormFiled extends StatelessWidget {
 
 
            //.........suffixIcon.............
-          suffixIcon: suffixIcon
+          suffixIcon: suffixIcon,
+
+          //.........prefixIcon.............
+          prefixIcon: prefixIcon
 
 
         ));

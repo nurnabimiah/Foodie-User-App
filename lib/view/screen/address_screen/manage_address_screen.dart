@@ -29,7 +29,7 @@ class ManageAddressScreen extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(14.0),
           child: Container(
-          width: double.infinity,
+          width: double.infinity, 
           decoration: BoxDecoration(
             color: AppColorResources.primaryWhiteColor,
             border: Border.all(
