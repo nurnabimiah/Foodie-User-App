@@ -218,6 +218,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColorResources.primaryColor.withOpacity(0.92),
+
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(kToolbarHeight),
         child: AppBar(
@@ -235,6 +236,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ],
         ),
       ),
+
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -363,13 +365,25 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                             Expanded(
                                               flex:2,
                                               child: Container(
-                                                padding: EdgeInsets.symmetric(horizontal: 5.w,),
+                                                padding: EdgeInsets.symmetric(horizontal: 5.w,vertical: 2.h),
                                                 child: Column(
                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                                   children: [
-                                                    Text('Juice', style: TextStyle(fontSize: 12.sp, color: AppColorResources.primaryBlack, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis,),
+                                                    Row(
+                                                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                                      children: [
+                                                        Expanded(child: Text('Juiceaaaaaaadiii', style: TextStyle(fontSize: 12.sp, color: AppColorResources.primaryBlack, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis,)),
+                                                        GestureDetector(
+                                                          onTap: () {
 
+                                                          },
+                                                          child: Image.asset('assets/icons/add_to_cart.jpg', height: 22.h, width: 22.w),
+                                                        ),
+
+                                                      ],
+                                                    ),
+                                                    //Text('Juice', style: TextStyle(fontSize: 12.sp, color: AppColorResources.primaryBlack, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis,),
                                                     Row(
                                                       children: [
                                                         Text('\$120',
@@ -386,35 +400,18 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                                                           ),
                                                         ),
 
+
+
                                                       ],
                                                     ),
 
-                                                    // Row(
-                                                    //   children: [
-                                                    //     Icon(Icons.star, color: Colors.orange, size: 15.sp,),
-                                                    //     Text('4.69', style: TextStyle(fontSize: 12.sp, color: Colors.orange, fontWeight: FontWeight.w500,),),
-                                                    //   ],
-                                                    // ),
 
 
-                                                    // Row(
-                                                    //   children: [
-                                                    //     Text('Stock',  style:TextStyle(fontSize: 12.sp, color: AppColorResources.primaryBlack.withOpacity(0.7), fontWeight: FontWeight.w400),),
-                                                    //     LinearPercentIndicator(
-                                                    //       width: 90.0,
-                                                    //       animation: true,
-                                                    //       lineHeight: 13.0,
-                                                    //       animationDuration: 1500,
-                                                    //       percent:0.5,
-                                                    //       center: Text("5",
-                                                    //         style: TextStyle(fontSize: 10.sp, color: AppColorResources.primaryWhiteColor, fontWeight: FontWeight.w400),),
-                                                    //
-                                                    //       progressColor: AppColorResources.primaryPinkColor,
-                                                    //       barRadius: Radius.circular(10.r),
-                                                    //       backgroundColor: AppColorResources.primaryBlack.withOpacity(0.3),
-                                                    //     ),
-                                                    //   ],
-                                                    // ),
+
+
+
+
+
                                                   ],
                                                 ),
                                               ),
