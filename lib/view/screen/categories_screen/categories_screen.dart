@@ -20,9 +20,11 @@ class CategoriesScreen extends StatefulWidget {
   _CategoriesScreenState createState() => _CategoriesScreenState();
 }
 
+
 class _CategoriesScreenState extends State<CategoriesScreen> {
   int _selectedTabIndex = 0;
   final CategoriesController _controller = Get.put(CategoriesController());
+  List<CategoriWiseItemList> selectedCategoryItems = [];
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +47,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ],
         ),
       ),
+
+
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
@@ -61,6 +65,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     onTap: () {
                       setState(() {
                         _selectedTabIndex = index;
+                        selectedCategoryItems = categoryItem.categoriwistItemList!;
                       });
                     },
                     child: Container(
@@ -105,30 +110,30 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 physics: AlwaysScrollableScrollPhysics(),
                 child: Container(
                   decoration: BoxDecoration(
-                    gradient: new LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [
-                          AppColorResources.primaryColor,
-                          AppColorResources.primaryWhiteColor,
-                        ]
-                    ),
+                   color: AppColorResources.primaryColor,
+                    // gradient: new LinearGradient(
+                    //   begin: Alignment.topCenter,
+                    //   end: Alignment.bottomCenter,
+                    //   colors: [
+                    //     AppColorResources.primaryColor,
+                    //     AppColorResources.primaryWhiteColor,
+                    //   ],
+                    // ),
                   ),
                   child: Column(
                     children: [
-                      /// Product Cart
                       GridView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           crossAxisCount: 2,
                           mainAxisSpacing: 15,
-                          crossAxisSpacing:0.w,
-                          childAspectRatio: 4/4.6,
+                          crossAxisSpacing: 0.w,
+                          childAspectRatio: 4 / 4.6,
                         ),
-                        itemCount: 9,
+                        itemCount: selectedCategoryItems.length,
                         itemBuilder: (BuildContext context, int index) {
-                          final product = categoriesProductModelList[index];
+                          final product = selectedCategoryItems[index];
                           bool isInCart = _controller.cartItems.any((item) => item.product == product);
                           bool isFavorite = _controller.favoriteItems.contains(product);
 
@@ -136,10 +141,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                             product: product,
                             isInCart: isInCart,
                             isFavorite: isFavorite,
+                            categoriwistItemList: selectedCategoryItems,
                           );
                         },
                       ),
-                      // SizedBox(height: 20.h,),
                     ],
                   ),
                 ),
@@ -154,12 +159,25 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
 
 
+
+
+
+
+
+
 class AddToCartProductItem extends StatefulWidget {
-  final CategoriesProductModel product;
+  final CategoriWiseItemList product;
   final bool isInCart;
   final bool isFavorite;
+  final List<CategoriWiseItemList>? categoriwistItemList; // Added this line
 
-  const AddToCartProductItem({Key? key, required this.product, required this.isInCart, required this.isFavorite}) : super(key: key);
+  const AddToCartProductItem({
+    Key? key,
+    required this.product,
+    required this.isInCart,
+    required this.isFavorite,
+    required this.categoriwistItemList, // Added this line
+  }) : super(key: key);
 
   @override
   _AddToCartProductItemState createState() => _AddToCartProductItemState();
@@ -171,14 +189,14 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
-      padding:  EdgeInsets.only(left:8.0.w,right: 8.w),
+      padding: EdgeInsets.only(left: 8.0.w, right: 2.w),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.r),
           color: AppColorResources.primaryWhiteColor,
+
           boxShadow: [
             BoxShadow(
               offset: Offset(0.5, 0.5),
@@ -187,6 +205,8 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
             ),
           ],
         ),
+
+
         child: Stack(
           children: [
             /// Product
@@ -194,19 +214,22 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
               child: Column(
                 children: [
                   Expanded(
-                    flex: 3,
+                    flex: 4,
                     child: Center(
                       child: Stack(
-                        alignment: Alignment.center,
+                       alignment: Alignment.center,
                         children: [
                           ClipRRect(
-                            borderRadius: BorderRadius.circular(10.r),
+                            borderRadius: BorderRadius.only(topLeft: Radius.circular(10.r,),topRight:Radius.circular(10.r,) ),
                             child: CachedNetworkImage(
-                              fit: BoxFit.cover,
+                              fit: BoxFit.fitHeight,
                               width: double.infinity,
-                              imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/64/Foods_%28cropped%29.jpg',
-                              progressIndicatorBuilder: (context, url, downloadProgress) => Image.asset("assets/images/place_holder_image.png", fit: BoxFit.fill,),
-                              errorWidget: (context, url, error) => Image.asset("assets/images/placeholder.jpg", fit: BoxFit.fill,),
+                               height: 120.h,
+                              imageUrl: widget.product.productImage,
+                              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                                  Image.asset("assets/images/place_holder_image.png", fit: BoxFit.fill,),
+                              errorWidget: (context, url, error) =>
+                                  Image.asset("assets/images/placeholder.jpg", fit: BoxFit.fill,),
                             ),
                           ),
 
@@ -254,6 +277,7 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                       ),
                     ),
                   ),
+
                   Expanded(
                     flex: 2,
                     child: Container(
@@ -265,36 +289,43 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
                               Expanded(
-                                child: Text('${widget.product.productName}', style: TextStyle(fontSize: 12.sp, color: AppColorResources.primaryBlack, fontWeight: FontWeight.w500), overflow: TextOverflow.ellipsis,),
+                                child: Text(
+                                  widget.product.categoriItemName,
+                                  style: TextStyle(
+                                    fontSize: 12.sp,
+                                    color: AppColorResources.primaryBlack,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
-
                               GestureDetector(
-                                onTap: (){
+                                onTap: () {
                                   setState(() {
                                     // Toggle the visibility of the increment and decrement buttons
                                     showButtons = !showButtons;
                                   });
                                 },
-                                  child: Image.asset('assets/icons/add_to_cart.jpg',height: 23.h,width: 23.w,))
+                                child: Image.asset(
+                                  'assets/icons/add_to_cart.jpg',
+                                  height: 23.h,
+                                  width: 23.w,
+                                ),
+                              )
                             ],
                           ),
                           Row(
                             children: [
                               Text(
-                                '\$120',
-                                style: TextStyle(fontSize: 12.sp, color: AppColorResources.primaryBlack.withOpacity(0.7), fontWeight: FontWeight.w500),
-                              ),
-                              SizedBox(width: 10.w,),
-                              Text(
-                                '\$320',
+                                '\$${widget.product.categoriItemPrice}',
                                 style: TextStyle(
                                   fontSize: 12.sp,
-                                  color: AppColorResources.primaryPinkColor,
+                                  color: AppColorResources.primaryBlack.withOpacity(0.7),
                                   fontWeight: FontWeight.w500,
-                                  decoration: TextDecoration.lineThrough,
-                                  decorationColor: AppColorResources.primaryPinkColor,
                                 ),
                               ),
+                              SizedBox(width: 10.w),
+                              // ... your existing code ...
                             ],
                           ),
                         ],
@@ -319,7 +350,10 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                   decoration: BoxDecoration(
                     image: DecorationImage(image: AssetImage('assets/images/discount_card.png'), fit: BoxFit.fill),
                   ),
-                  child: Text('2% OFF', style: TextStyle(fontSize: 10.sp, color: AppColorResources.primaryWhiteColor, fontWeight: FontWeight.w500),),
+                  child: Text(
+                    '2% OFF',
+                    style: TextStyle(fontSize: 10.sp, color: AppColorResources.primaryWhiteColor, fontWeight: FontWeight.w500),
+                  ),
                 ),
               ),
             ),
@@ -343,4 +377,3 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
     );
   }
 }
-
