@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:foodie_resturent_user_app/controller/auth_controller.dart';
+import 'package:foodie_resturent_user_app/controller/categories_controller.dart';
 import 'package:foodie_resturent_user_app/utils/app_config/app_config_file.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -27,6 +28,7 @@ Future<void> init() async {
 
   /// Controller
    Get.lazyPut(() => AuthController(), fenix: true);
+   Get.lazyPut(() => CategoriesController(), fenix: true);
 
 
 
