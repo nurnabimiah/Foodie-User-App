@@ -12,20 +12,17 @@ import '../../../controller/categories_controller.dart';
 import '../../../data/model/response_model/categories_product_model.dart';
 import '../../../utils/app_color_resources/app_color_resources.dart';
 
+
+
+
 // class AddToCartProductItem extends StatefulWidget {
-//
 //   final CategoriWiseItemList product;
-//   final bool isInCart;
-//   final bool isFavorite;
 //   final List<CategoriWiseItemList>? categoriwistItemList;
-//
 //
 //   const AddToCartProductItem({
 //     Key? key,
 //     required this.product,
-//     required this.isInCart,
-//     required this.isFavorite,
-//     required this.categoriwistItemList, // Added this line
+//     required this.categoriwistItemList,
 //   }) : super(key: key);
 //
 //   @override
@@ -33,11 +30,20 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 // }
 //
 // class _AddToCartProductItemState extends State<AddToCartProductItem> {
-//   int quantity = 1;
 //   bool showButtons = false;
+//
+//   void dispose() {
+//     // Reset showButtons state when the widget is disposed
+//     showButtons = false;
+//     super.dispose();
+//   }
 //
 //   @override
 //   Widget build(BuildContext context) {
+//     CategoriesController _controller = Get.find<CategoriesController>();
+//     int quantity = _controller.cartQuantity(widget.product);
+//     bool isInCart = quantity > 0;
+//
 //     return Padding(
 //       padding: EdgeInsets.only(left: 8.0.w, right: 2.w),
 //       child: Container(
@@ -45,7 +51,6 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //         decoration: BoxDecoration(
 //           borderRadius: BorderRadius.circular(10.r),
 //           color: AppColorResources.primaryWhiteColor,
-//
 //           boxShadow: [
 //             BoxShadow(
 //               offset: Offset(0.5, 0.5),
@@ -54,11 +59,8 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //             ),
 //           ],
 //         ),
-//
-//
 //         child: Stack(
 //           children: [
-//             /// Product
 //             Positioned(
 //               child: Column(
 //                 children: [
@@ -69,64 +71,73 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //                         alignment: Alignment.center,
 //                         children: [
 //                           ClipRRect(
-//                             borderRadius: BorderRadius.only(topLeft: Radius.circular(10.r,),topRight:Radius.circular(10.r,) ),
+//                             borderRadius: BorderRadius.only(
+//                               topLeft: Radius.circular(10.r),
+//                               topRight: Radius.circular(10.r),
+//                             ),
 //                             child: CachedNetworkImage(
 //                               fit: BoxFit.fitHeight,
 //                               width: double.infinity,
 //                               height: 120.h,
 //                               imageUrl: widget.product.productImage,
 //                               progressIndicatorBuilder: (context, url, downloadProgress) =>
-//                                   Image.asset("assets/images/place_holder_image.png", fit: BoxFit.fill,),
+//                                   Image.asset("assets/images/place_holder_image.png", fit: BoxFit.fill),
 //                               errorWidget: (context, url, error) =>
-//                                   Image.asset("assets/images/placeholder.jpg", fit: BoxFit.fill,),
+//                                   Image.asset("assets/images/placeholder.jpg", fit: BoxFit.fill),
 //                             ),
 //                           ),
 //
-//                           if (showButtons) Row(
-//                             mainAxisAlignment: MainAxisAlignment.center,
-//                             children: [
-//                               GestureDetector(
-//                                 onTap: () {
-//                                   // Handle decrement logic
-//                                   setState(() {
-//                                     // Decrement the quantity
-//                                     quantity = quantity > 1 ? quantity - 1 : quantity;
-//                                   });
-//                                 },
-//                                 child: Container(
-//                                   decoration: BoxDecoration(
-//                                     color: Colors.white.withOpacity(0.7),
-//                                     shape: BoxShape.circle,
-//                                   ),
-//                                   child: Icon(Icons.remove, size: 20),
-//                                 ),
+//
+//                           if (showButtons)
+//                             Container(
+//                               height: 30.h,
+//                               width: 100.w,
+//                               decoration: BoxDecoration(
+//                                 color: AppColorResources.primaryPinkColor,
+//                                 borderRadius: BorderRadius.all(Radius.circular(12.r)),
 //                               ),
-//                               SizedBox(width: 10),
-//                               Text(quantity.toString(), style: TextStyle(fontSize: 20)),
-//                               SizedBox(width: 10),
-//                               GestureDetector(
-//                                 onTap: () {
-//                                   // Handle increment logic
-//                                   setState(() {
-//                                     // Increment the quantity
-//                                     quantity++;
-//                                   });
-//                                 },
-//                                 child: Container(
-//                                   decoration: BoxDecoration(
-//                                     color: Colors.white.withOpacity(0.7),
-//                                     shape: BoxShape.circle,
+//                               child: Row(
+//                                 mainAxisAlignment: MainAxisAlignment.center,
+//                                 children: [
+//                                   GestureDetector(
+//                                     onTap: () {
+//                                       setState(() {
+//                                         _controller.removeFromCart(widget.product);
+//                                       });
+//                                     },
+//
+//                                     child: Container(
+//                                       decoration: BoxDecoration(
+//                                         color: Colors.white.withOpacity(0.7),
+//                                         shape: BoxShape.circle,
+//                                       ),
+//                                       child: Icon(Icons.remove, size: 20),
+//                                     ),
 //                                   ),
-//                                   child: Icon(Icons.add, size: 20),
-//                                 ),
+//                                   SizedBox(width: 10),
+//                                   Text(quantity.toString(), style: TextStyle(fontSize: 20)),
+//                                   SizedBox(width: 10),
+//                                   GestureDetector(
+//                                     onTap: () {
+//                                       setState(() {
+//                                         _controller.addToCart(widget.product);
+//                                       });
+//                                     },
+//                                     child: Container(
+//                                       decoration: BoxDecoration(
+//                                         color: Colors.white.withOpacity(0.7),
+//                                         shape: BoxShape.circle,
+//                                       ),
+//                                       child: Icon(Icons.add, size: 20),
+//                                     ),
+//                                   ),
+//                                 ],
 //                               ),
-//                             ],
-//                           ),
+//                             ),
 //                         ],
 //                       ),
 //                     ),
 //                   ),
-//
 //                   Expanded(
 //                     flex: 2,
 //                     child: Container(
@@ -151,7 +162,6 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //                               GestureDetector(
 //                                 onTap: () {
 //                                   setState(() {
-//                                     // Toggle the visibility of the increment and decrement buttons
 //                                     showButtons = !showButtons;
 //                                   });
 //                                 },
@@ -160,7 +170,7 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //                                   height: 23.h,
 //                                   width: 23.w,
 //                                 ),
-//                               )
+//                               ),
 //                             ],
 //                           ),
 //                           Row(
@@ -174,7 +184,6 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //                                 ),
 //                               ),
 //                               SizedBox(width: 10.w),
-//                               // ... your existing code ...
 //                             ],
 //                           ),
 //                         ],
@@ -184,8 +193,6 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //                 ],
 //               ),
 //             ),
-//
-//             /// Discount
 //             Positioned(
 //               top: 5,
 //               left: 0,
@@ -197,27 +204,38 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //                   alignment: Alignment.centerLeft,
 //                   padding: EdgeInsets.only(left: 5.w),
 //                   decoration: BoxDecoration(
-//                     image: DecorationImage(image: AssetImage('assets/images/discount_card.png'), fit: BoxFit.fill),
+//                     // image: DecorationImage(
+//                     //   image: AssetImage('assets/images/discount_card.png'),
+//                     //   fit: BoxFit.fill,
+//                     // ),
 //                   ),
 //                   child: Text(
 //                     '2% OFF',
-//                     style: TextStyle(fontSize: 10.sp, color: AppColorResources.primaryWhiteColor, fontWeight: FontWeight.w500),
+//                     style: TextStyle(
+//                       fontSize: 10.sp,
+//                       color: AppColorResources.primaryWhiteColor,
+//                       fontWeight: FontWeight.w500,
+//                     ),
 //                   ),
 //                 ),
 //               ),
 //             ),
-//
-//             /// Favorite
 //             Positioned(
 //               top: 5,
 //               right: 5,
 //               child: InkWell(
 //                 onTap: () {
 //                   setState(() {
-//                     // Handle favorite button tap
+//                     _controller.toggleFavorite(widget.product);
 //                   });
 //                 },
-//                 child: Icon(Icons.favorite_outline, color: AppColorResources.primaryPinkColor, size: 20.sp),
+//                 child: Icon(
+//                   _controller.favoriteItems.contains(widget.product)
+//                       ? Icons.favorite
+//                       : Icons.favorite_outline,
+//                   color: AppColorResources.primaryPinkColor,
+//                   size: 20.sp,
+//                 ),
 //               ),
 //             ),
 //           ],
@@ -226,6 +244,7 @@ import '../../../utils/app_color_resources/app_color_resources.dart';
 //     );
 //   }
 // }
+
 
 class AddToCartProductItem extends StatefulWidget {
   final CategoriWiseItemList product;
@@ -247,9 +266,7 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
   @override
   Widget build(BuildContext context) {
     CategoriesController _controller = Get.find<CategoriesController>();
-
     int quantity = _controller.cartQuantity(widget.product);
-    bool isInCart = quantity > 0;
 
     return Padding(
       padding: EdgeInsets.only(left: 8.0.w, right: 2.w),
@@ -268,7 +285,6 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
         ),
         child: Stack(
           children: [
-            /// Product
             Positioned(
               child: Column(
                 children: [
@@ -296,47 +312,55 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                           ),
 
                           if (showButtons)
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      _controller.removeFromCart(widget.product);
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.7),
-                                      shape: BoxShape.circle,
+                            Container(
+                              height: 30.h,
+                              width: 100.w,
+                              decoration: BoxDecoration(
+                                color: AppColorResources.primaryPinkColor,
+                                borderRadius: BorderRadius.all(Radius.circular(12.r)),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _controller.removeFromCart(widget.product);
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.7),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(Icons.remove, size: 20),
                                     ),
-                                    child: Icon(Icons.remove, size: 20),
                                   ),
-                                ),
-                                SizedBox(width: 10),
-                                Text(quantity.toString(), style: TextStyle(fontSize: 20)),
-                                SizedBox(width: 10),
-                                GestureDetector(
-                                  onTap: () {
-                                    setState(() {
-                                      _controller.addToCart(widget.product);
-                                    });
-                                  },
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: Colors.white.withOpacity(0.7),
-                                      shape: BoxShape.circle,
+                                  SizedBox(width: 10),
+                                  Text(quantity.toString(), style: TextStyle(fontSize: 20)),
+                                  SizedBox(width: 10),
+                                  GestureDetector(
+                                    onTap: () {
+                                      setState(() {
+                                        _controller.addToCart(widget.product);
+                                       // showButtons = true; // Update showButtons to true after adding to cart
+                                      });
+                                    },
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: Colors.white.withOpacity(0.7),
+                                        shape: BoxShape.circle,
+                                      ),
+                                      child: Icon(Icons.add, size: 20),
                                     ),
-                                    child: Icon(Icons.add, size: 20),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
                         ],
                       ),
                     ),
                   ),
-
                   Expanded(
                     flex: 2,
                     child: Container(
@@ -362,6 +386,7 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                                 onTap: () {
                                   setState(() {
                                     showButtons = !showButtons;
+
                                   });
                                 },
                                 child: Image.asset(
@@ -369,7 +394,7 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                                   height: 23.h,
                                   width: 23.w,
                                 ),
-                              )
+                              ),
                             ],
                           ),
                           Row(
@@ -383,7 +408,6 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                                 ),
                               ),
                               SizedBox(width: 10.w),
-                              // ... your existing code ...
                             ],
                           ),
                         ],
@@ -393,8 +417,6 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                 ],
               ),
             ),
-
-            /// Discount
             Positioned(
               top: 5,
               left: 0,
@@ -406,17 +428,22 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                   alignment: Alignment.centerLeft,
                   padding: EdgeInsets.only(left: 5.w),
                   decoration: BoxDecoration(
-                    image: DecorationImage(image: AssetImage('assets/images/discount_card.png'), fit: BoxFit.fill),
+                    // image: DecorationImage(
+                    //   image: AssetImage('assets/images/discount_card.png'),
+                    //   fit: BoxFit.fill,
+                    // ),
                   ),
                   child: Text(
                     '2% OFF',
-                    style: TextStyle(fontSize: 10.sp, color: AppColorResources.primaryWhiteColor, fontWeight: FontWeight.w500),
+                    style: TextStyle(
+                      fontSize: 10.sp,
+                      color: AppColorResources.primaryWhiteColor,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ),
             ),
-
-            /// Favorite
             Positioned(
               top: 5,
               right: 5,
@@ -427,7 +454,9 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
                   });
                 },
                 child: Icon(
-                  _controller.favoriteItems.contains(widget.product) ? Icons.favorite : Icons.favorite_outline,
+                  _controller.favoriteItems.contains(widget.product)
+                      ? Icons.favorite
+                      : Icons.favorite_outline,
                   color: AppColorResources.primaryPinkColor,
                   size: 20.sp,
                 ),
@@ -439,3 +468,11 @@ class _AddToCartProductItemState extends State<AddToCartProductItem> {
     );
   }
 }
+
+
+
+
+
+
+
+

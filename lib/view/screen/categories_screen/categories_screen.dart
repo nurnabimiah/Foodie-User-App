@@ -69,6 +69,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         selectedCategoryItems = categoryItem.categoriwistItemList!;
                       });
                     },
+
                     child: Container(
                       height: 130,
                       width: 100,
@@ -106,9 +107,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               ),
             ),
 
-
-
-
             Expanded(
               flex: 5,
               child: SingleChildScrollView(
@@ -132,10 +130,11 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         itemCount: selectedCategoryItems.length,
                         itemBuilder: (BuildContext context, int index) {
                           final product = selectedCategoryItems[index];
-                          bool isInCart = _controller.cartItems.any((item) => item.product == product);
+                          //bool isInCart = _controller.cartItems.any((item) => item.product == product);
                           bool isFavorite = _controller.favoriteItems.contains(product);
 
                           return AddToCartProductItem(
+                            key:  Key(product.categoriItemId.toString()),
                             product: product,
                             //isInCart: isInCart,
                             //isFavorite: isFavorite,
@@ -154,6 +153,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     );
   }
 }
+
+
 
 
 
