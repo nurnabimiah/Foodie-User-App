@@ -4,6 +4,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/view/screen/cart_screen/add_to_cart_screen.dart';
 import 'package:foodie_resturent_user_app/view/widget/carousel_slider_widget/carousel_slider_widget.dart';
 import 'package:foodie_resturent_user_app/view/widget/food_item_preview_card/food_item_preview_card.dart';
 import 'package:foodie_resturent_user_app/view/widget/text_form_filed_widget/text_form_filed_widget.dart';
@@ -41,7 +42,11 @@ class HomeScreen extends StatelessWidget {
             ),
             Padding(
               padding:  EdgeInsets.only(right: 8.0.w),
-              child: Icon(Icons.shopping_cart,size: 19.sp,),
+              child: GestureDetector(
+                  onTap: (){
+                    Get.toNamed(AddToCartScreen.routeName);
+                  },
+                  child: Icon(Icons.shopping_cart,size: 19.sp,)),
             ),
           ],
 
