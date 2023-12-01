@@ -57,6 +57,7 @@ dependencies:
   dropdown_button2:
   carousel_slider: ^4.2.1
   percent_indicator: ^4.2.3
+  dotted_line: ^3.2.2
 
 
 dev_dependencies:

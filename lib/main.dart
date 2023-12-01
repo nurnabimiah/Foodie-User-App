@@ -39,6 +39,7 @@ import 'package:foodie_resturent_user_app/view/screen/auth_screen/sign_up_screen
 import 'package:foodie_resturent_user_app/view/screen/bottom_navbar_screen/bottom_navbar_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/cart_screen/add_to_cart_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/categories_screen/categories_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/checkout_screen/checkout_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/favourite_list_screen/favourite_list_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/home_screen/home_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/notification_screen/notification_screen.dart';
@@ -110,11 +111,13 @@ class MyApp extends StatelessWidget {
               GetPage(name:MyOrderScreen.routeName, page: () => MyOrderScreen()),
               GetPage(name:OrderDetailsScreen.routeName, page: () => OrderDetailsScreen()),
               GetPage(name:AddToCartScreen.routeName, page: () => AddToCartScreen()),
+              GetPage(name:CheckOutScreen.routeName, page: () => CheckOutScreen()),
               GetPage(name:FavouriteListScreen.routeName, page: () => FavouriteListScreen()),
               GetPage(name:NotificationScreen.routeName, page: () => NotificationScreen()),
               GetPage(name:ProfileScreen.routeName, page: () => const ProfileScreen()),
               GetPage(name:EditProfileScreen.routeName, page: () =>  EditProfileScreen()),
               GetPage(name:ManageAddressScreen.routeName, page: () =>  ManageAddressScreen()),
+
             ],
           );
         });

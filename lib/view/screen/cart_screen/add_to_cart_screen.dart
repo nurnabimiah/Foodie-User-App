@@ -4,7 +4,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/view/screen/checkout_screen/checkout_screen.dart';
 import 'package:foodie_resturent_user_app/view/widget/button_widget/custom_button_widget.dart';
+import 'package:get/get.dart';
 import '../../../utils/app_color_resources/app_color_resources.dart';
 import '../../../utils/app_style.dart';
 
@@ -287,7 +289,9 @@ class AddToCartScreen extends StatelessWidget {
                   SizedBox(height: 10.h,),
 
                   CustomButtonWidget(
-                      onTap: (){},
+                      onTap: (){
+                        Get.toNamed(CheckOutScreen.routeName);
+                      },
                       buttonText: 'PROCEED TO CHECKOUT'
                   )
                 ],
