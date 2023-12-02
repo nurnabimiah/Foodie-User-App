@@ -3,6 +3,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:foodie_resturent_user_app/view/screen/order_screen/order_successful_screen.dart';
 import 'package:foodie_resturent_user_app/view/widget/dash_line_widget/dash_line_widget.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -239,7 +240,7 @@ class CheckOutScreen extends StatelessWidget {
 
                     CustomButtonWidget(
                         onTap: (){
-                          Get.toNamed(CheckOutScreen.routeName);
+                          Get.toNamed(OrderSuccessfulScreen.routeName);
                         },
                         buttonText: 'Confirm Order'
                     )
