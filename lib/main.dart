@@ -47,6 +47,7 @@ import 'package:foodie_resturent_user_app/view/screen/onboarding_screen/onboardi
 import 'package:foodie_resturent_user_app/view/screen/order_screen/my_order_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/order_details_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/order_screen/order_successful_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/product_details_screen/product_details_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/profile_screen/edit_profile_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/profile_screen/profile_screen.dart';
 import 'package:foodie_resturent_user_app/view/screen/splash_screen/splash_screen.dart';
@@ -109,6 +110,7 @@ class MyApp extends StatelessWidget {
               GetPage(name:HomeScreen.routeName, page: () =>  HomeScreen()),
               GetPage(name:BottomNavBar.routeName, page: () =>  BottomNavBar()),
               GetPage(name:CategoriesScreen.routeName, page: () =>  CategoriesScreen()),
+              GetPage(name:ProductDetailsScreen.routeName, page: () =>  ProductDetailsScreen()),
               GetPage(name:MyOrderScreen.routeName, page: () => MyOrderScreen()),
               GetPage(name:OrderDetailsScreen.routeName, page: () => OrderDetailsScreen()),
               GetPage(name:OrderSuccessfulScreen.routeName, page: () => OrderSuccessfulScreen()),

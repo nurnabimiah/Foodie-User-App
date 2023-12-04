@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/data/model/response_model/categories_product_model.dart';
+import 'package:foodie_resturent_user_app/view/screen/product_details_screen/product_details_screen.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../../controller/categories_controller.dart';
@@ -134,6 +135,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   child: Column(
                     children: [
                       GridView.builder(
+
                         physics: NeverScrollableScrollPhysics(),
                         shrinkWrap: true,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -148,12 +150,19 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                           //bool isInCart = _controller.cartItems.any((item) => item.product == product);
                           bool isFavorite = _controller.favoriteItems.contains(product);
 
-                          return AddToCartProductItem(
-                            key:  Key(product.categoriItemId.toString()),
-                            product: product,
-                            //isInCart: isInCart,
-                            //isFavorite: isFavorite,
-                            categoriwistItemList: selectedCategoryItems,
+                          ///.............navigate to product details screen.............
+                          return GestureDetector(
+                            onTap: (){
+                              Get.toNamed(ProductDetailsScreen.routeName);
+                            },
+
+                            child: AddToCartProductItem(
+                              key:  Key(product.categoriItemId.toString()),
+                              product: product,
+                              //isInCart: isInCart,
+                              //isFavorite: isFavorite,
+                              categoriwistItemList: selectedCategoryItems,
+                            ),
                           );
                         },
                       ),
