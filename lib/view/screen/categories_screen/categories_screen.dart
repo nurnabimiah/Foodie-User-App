@@ -27,6 +27,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   final CategoriesController _controller = Get.put(CategoriesController());
   List<CategoriWiseItemList> selectedCategoryItems = [];
 
+
+  @override
+  void initState() {
+    super.initState();
+    // Set initial value for selectedCategoryItems
+    if (categoriesProductModelList.isNotEmpty) {
+      selectedCategoryItems = categoriesProductModelList[0].categoriwistItemList ?? [];
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,6 +65,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
+            ///...........categories name........................................
             Expanded(
               flex: 2,
               child: ListView.separated(
@@ -107,6 +118,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
               ),
             ),
 
+
+
+
+            ///...........categories item........................................
             Expanded(
               flex: 5,
               child: SingleChildScrollView(
@@ -147,6 +162,7 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                 ),
               ),
             ),
+
           ],
         ),
       ),

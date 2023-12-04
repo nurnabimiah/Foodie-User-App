@@ -5,6 +5,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:foodie_resturent_user_app/view/screen/cart_screen/add_to_cart_screen.dart';
+import 'package:foodie_resturent_user_app/view/screen/categories_screen/categories_screen.dart';
 import 'package:foodie_resturent_user_app/view/widget/carousel_slider_widget/carousel_slider_widget.dart';
 import 'package:foodie_resturent_user_app/view/widget/food_item_preview_card/food_item_preview_card.dart';
 import 'package:foodie_resturent_user_app/view/widget/text_form_filed_widget/text_form_filed_widget.dart';
@@ -40,6 +41,7 @@ class HomeScreen extends StatelessWidget {
                   Get.toNamed(NotificationScreen.routeName);
                 }, icon:  Icon(Icons.notifications_active,size: 19.sp,),)
             ),
+
             Padding(
               padding:  EdgeInsets.only(right: 8.0.w),
               child: GestureDetector(
@@ -83,7 +85,7 @@ class HomeScreen extends StatelessWidget {
                   Text('Categories',style: myStyleInter(14.sp, AppColorResources.subBlackColor,FontWeight.w600),),
                   GestureDetector(
                     onTap: (){
-                      //Get.toNamed();
+                      Get.toNamed(CategoriesScreen.routeName);
                     },
                     child: Text("View All",style: myStyleInter(14.sp, AppColorResources.primaryPinkColor,FontWeight.w600),),
                   ),
@@ -168,17 +170,6 @@ class HomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-
-
-
-
-
-
-
-
-
-
-
 
 
 
